@@ -6,7 +6,7 @@ export CURR_JOB_CONTEXT="infra/awsBuildAMI"
 export RES_REPO="secops_repo"
 export RES_VPC_AMI="ami_vpc_conf"
 export RES_AWS_CREDS="aws_creds"
-export OUT_AMI_SEC_APPRD="ami_sec_approved"
+export OUT_AMI_SEC_APPRD=$OUTPUT_1
 
 export CURR_JOB_STATE=$(ship_resource_get_state $CURR_JOB)
 export RES_REPO_STATE=$(ship_resource_get_state $RES_REPO)

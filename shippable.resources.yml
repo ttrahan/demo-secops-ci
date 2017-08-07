@@ -7,52 +7,52 @@ resources:
 # Automation scripts repo
   - name: secops_repo
     type: gitRepo
-    integration: "demo-secops-github"
+    integration: "ttrahan-gh"
     pointer:
-      sourceName: "aye0aye/demo-secops"
+      sourceName: "ttrahan/demo-secops"
       branch: master
     flags:
-      - e2eShippableDemo
+      - amiBuildCI
 
 # AWS credentials
   - name: aws_creds
     type: integration
-    integration: "dr-aws"
+    integration: "ttrahan-aws"
     flags:
-      - e2eShippableDemo
+      - amiBuildCI
 
-# AWS PEM key
-  - name: aws_pem
-    type: integration
-    integration: "dr-keypair-us-east"
-    flags:
-      - e2eShippableDemo
+# # AWS PEM key
+#   - name: aws_pem
+#     type: integration
+#     integration: "dr-keypair-us-east"
+#     flags:
+#       - amiBuildCI
 
-# Networking Terraform State
-  - name: net_tf_state
-    type: state
-    flags:
-      - e2eShippableDemo
+# # Networking Terraform State
+#   - name: net_tf_state
+#     type: state
+#     flags:
+#       - amiBuildCI
 
-# VPC Creation Config
-  - name: net_conf
-    type: params
-    version:
-      params:
-        REGION: "us-east-1"
-        AMI_VPC: "ami_vpc"
-        AMI_NETWORK_CIDR: "200.0.0.0/16"
-        AMI_PUBLIC_CIDR: "200.0.0.0/24"
-        TEST_VPC: "test_vpc"
-        TEST_NETWORK_CIDR: "210.0.0.0/16"
-        TEST_PUBLIC_01_CIDR: "210.0.0.0/24"
-        TEST_PUBLIC_02_CIDR: "210.0.10.0/24"
-        PROD_VPC: "prod_vpc"
-        PROD_NETWORK_CIDR: "100.0.0.0/16"
-        PROD_PUBLIC_01_CIDR: "100.0.0.0/24"
-        PROD_PUBLIC_02_CIDR: "100.0.10.0/24"
-    flags:
-      - e2eShippableDemo
+# # VPC Creation Config
+#   - name: net_conf
+#     type: params
+#     version:
+#       params:
+#         REGION: "us-east-1"
+#         AMI_VPC: "ami_vpc"
+#         AMI_NETWORK_CIDR: "200.0.0.0/16"
+#         AMI_PUBLIC_CIDR: "200.0.0.0/24"
+#         TEST_VPC: "test_vpc"
+#         TEST_NETWORK_CIDR: "210.0.0.0/16"
+#         TEST_PUBLIC_01_CIDR: "210.0.0.0/24"
+#         TEST_PUBLIC_02_CIDR: "210.0.10.0/24"
+#         PROD_VPC: "prod_vpc"
+#         PROD_NETWORK_CIDR: "100.0.0.0/16"
+#         PROD_PUBLIC_01_CIDR: "100.0.0.0/24"
+#         PROD_PUBLIC_02_CIDR: "100.0.10.0/24"
+#     flags:
+#       - amiBuildCI
 
 # Base ECS AMI ID
   - name: ami_sec_approved
@@ -61,31 +61,31 @@ resources:
       params:
         SEED: "initial_version"
     flags:
-      - e2eShippableDemo
+      - amiBuildCI
 
-# OUT AWS AMI VPC IDs
-  - name: ami_vpc_conf
-    type: params
-    version:
-      params:
-        SEED: "initial_version"
-    flags:
-      - e2eShippableDemo
-
-# OUT AWS TEST VPC IDs
-  - name: test_vpc_conf
-    type: params
-    version:
-      params:
-        SEED: "initial_version"
-    flags:
-      - e2eShippableDemo
-
-# OUT AWS PROD VPC IDs
-  - name: prod_vpc_conf
-    type: params
-    version:
-      params:
-        SEED: "initial_version"
-    flags:
-      - e2eShippableDemo
+# # OUT AWS AMI VPC IDs
+#   - name: ami_vpc_conf
+#     type: params
+#     version:
+#       params:
+#         SEED: "initial_version"
+#     flags:
+#       - amiBuildCI
+#
+# # OUT AWS TEST VPC IDs
+#   - name: test_vpc_conf
+#     type: params
+#     version:
+#       params:
+#         SEED: "initial_version"
+#     flags:
+#       - amiBuildCI
+#
+# # OUT AWS PROD VPC IDs
+#   - name: prod_vpc_conf
+#     type: params
+#     version:
+#       params:
+#         SEED: "initial_version"
+#     flags:
+#       - amiBuildCI
