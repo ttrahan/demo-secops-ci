@@ -5,17 +5,17 @@ resources:
 #---------------------------------------------------------------#
 
 # Automation scripts repo
-  - name: secops_repo
+  - name: secops_repo_tt
     type: gitRepo
     integration: "ttrahan-gh"
     pointer:
-      sourceName: "ttrahan/demo-secops"
+      sourceName: "ttrahan/demo-secops-ci"
       branch: master
     flags:
       - amiBuildCI
 
 # AWS credentials
-  - name: aws_creds
+  - name: aws_creds_tt
     type: integration
     integration: "ttrahan-aws"
     flags:
@@ -55,7 +55,7 @@ resources:
 #       - amiBuildCI
 
 # Base ECS AMI ID
-  - name: ami_sec_approved
+  - name: ami_sec_approved_tt
     type: params
     version:
       params:
