@@ -13,8 +13,8 @@ branches:
 # full list http://docs.shippable.com/ci/advancedOptions/environmentVariables/
 env:
   global:
-    - CURR_JOB="demo-secops_runCI"
-    - OUTPUT_1="ami_sec_approved"
+    - CURR_JOB="demo-secops-ci_runCI"
+    - OUTPUT_1="ami_sec_approved_tt"
     - AWS_REGION="us-east-1"
 
 build:
@@ -25,8 +25,8 @@ build:
     # http://docs.shippable.com/platform/tutorial/workflow/howto-use-shipctl
     - pushd infra/awsBuildAMI
     - CURR_JOB_STATE=$(shipctl resource_get_state $CURR_JOB)
-    - AWS_ACCESS_KEY=$(shipctl resource_get_integration_resource_field aws_creds aws_access_key_id)
-    - AWS_SECRET_KEY=$(shipctl resource_get_integration_resource_field aws_creds aws_secret_access_key)
+    - AWS_ACCESS_KEY=$(shipctl resource_get_integration_resource_field aws_creds_tt aws_access_key_id)
+    - AWS_SECRET_KEY=$(shipctl resource_get_integration_resource_field aws_creds_tt aws_secret_access_key)
     - echo 'This is the AWS access key - '$AWS_ACCESS_KEY
     - popd
 
