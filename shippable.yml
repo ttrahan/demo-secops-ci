@@ -1,7 +1,7 @@
 language: python
 
 python:
-  - 2.7.5
+  - 2.7
 
 # use this to control what branches get built.
 # http://docs.shippable.com/ci/advancedOptions/branches/
