@@ -18,12 +18,19 @@ env:
     - AWS_REGION="us-east-1"
 
 build:
+  pre_ci_boot:
+    image_name: drydock/u14pytall
+    image_tag: v5.8.1
+    pull: true
+    options: "-e HOME=/root"
+
   ci:
     # Shippable provides a command utility for common operations like getting 
     # the values of Shippable-generated environment variables, saving to central
     # state, etc. See the full list of commands here:
     # http://docs.shippable.com/platform/tutorial/workflow/howto-use-shipctl
     - pushd infra/awsBuildAMI
+    - python --version
     - CURR_JOB_STATE=$(shipctl get_resource_state $CURR_JOB)
     - AWS_ACCESS_KEY=$(shipctl get_integration_resource_field aws_creds_tt aws_access_key_id)
     - AWS_SECRET_KEY=$(shipctl get_integration_resource_field aws_creds_tt aws_secret_access_key)
