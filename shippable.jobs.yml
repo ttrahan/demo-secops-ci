@@ -35,6 +35,8 @@ jobs:
   - name: demo-secops-ci_runCI
     type: runCI
     steps:
+      - IN: packer_conf
+        switch: off
       - IN: aws_creds_tt
         switch: off
       - IN: secops_repo_tt

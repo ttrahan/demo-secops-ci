@@ -21,38 +21,18 @@ resources:
     flags:
       - amiBuildCI
 
-# # AWS PEM key
-#   - name: aws_pem
-#     type: integration
-#     integration: "dr-keypair-us-east"
-#     flags:
-#       - amiBuildCI
-
-# # Networking Terraform State
-#   - name: net_tf_state
-#     type: state
-#     flags:
-#       - amiBuildCI
-
-# # VPC Creation Config
-#   - name: net_conf
-#     type: params
-#     version:
-#       params:
-#         REGION: "us-east-1"
-#         AMI_VPC: "ami_vpc"
-#         AMI_NETWORK_CIDR: "200.0.0.0/16"
-#         AMI_PUBLIC_CIDR: "200.0.0.0/24"
-#         TEST_VPC: "test_vpc"
-#         TEST_NETWORK_CIDR: "210.0.0.0/16"
-#         TEST_PUBLIC_01_CIDR: "210.0.0.0/24"
-#         TEST_PUBLIC_02_CIDR: "210.0.10.0/24"
-#         PROD_VPC: "prod_vpc"
-#         PROD_NETWORK_CIDR: "100.0.0.0/16"
-#         PROD_PUBLIC_01_CIDR: "100.0.0.0/24"
-#         PROD_PUBLIC_02_CIDR: "100.0.10.0/24"
-#     flags:
-#       - amiBuildCI
+# VPC Creation Config
+  - name: packer_conf
+    type: params
+    version:
+      params:
+        REGION: "us-east-1"
+        VPC_ID: "vpc-03db4867"
+        SUBNET_ID: "subnet-fb7060d0"
+        SECURITY_GROUP_ID: "sg-66c3c700"
+        SOURCE_AMI: "ami-d15a75c7"
+    flags:
+      - amiBuildCI
 
 # Base ECS AMI ID
   - name: ami_sec_approved_tt
