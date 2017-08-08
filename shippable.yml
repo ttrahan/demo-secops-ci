@@ -16,9 +16,9 @@ env:
     - CURR_JOB="demo-secops-ci_runCI"
     - OUTPUT_1="ami_sec_approved_tt"
     - AWS_REGION="us-east-1"
-    # - CURR_JOB_STATE=$(shipctl get_resource_state $CURR_JOB)
-    # - AWS_ACCESS_KEY=$(shipctl get_integration_resource_field aws_creds_tt aws_access_key_id)
-    # - AWS_SECRET_KEY=$(shipctl get_integration_resource_field aws_creds_tt aws_secret_access_key)
+    - CURR_JOB_STATE=$(shipctl get_resource_state $CURR_JOB)
+    - AWS_ACCESS_KEY=$(shipctl get_integration_resource_field aws_creds_tt aws_access_key_id)
+    - AWS_SECRET_KEY=$(shipctl get_integration_resource_field aws_creds_tt aws_secret_access_key)
 
 build:
   pre_ci_boot:
