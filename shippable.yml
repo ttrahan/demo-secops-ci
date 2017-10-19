@@ -1,5 +1,6 @@
 language: python
 
+
 python:
   - 2.7
 
@@ -31,11 +32,12 @@ build:
     # the values of Shippable-generated environment variables, saving to central
     # state, etc. See the full list of commands here:
     # http://docs.shippable.com/platform/tutorial/workflow/howto-use-shipctl
-    - pushd infra/awsBuildAMI
-    - python --version
-    - echo 'This is the AWS access key - '$AWS_ACCESS_KEY
-    - echo 'This is the SUBNET - '$SUBNET_ID
-    - popd
+    - aws ec2 describe-instances
+    # - pushd infra/awsBuildAMI
+    # - python --version
+    # - echo 'This is the AWS access key - '$AWS_ACCESS_KEY
+    # - echo 'This is the SUBNET - '$SUBNET_ID
+    # - popd
 
   on_success:
     # save the new image state for use later in the pipeline
@@ -44,6 +46,11 @@ build:
 # Integrations are used to connect external resources to CI
 # http://docs.shippable.com/integrations/overview/
 integrations:
+  generic:
+    - integrationName: ttrahan-aws-keys
+      type: awsKeys
+      region: us-east-1
+
   notifications:
     # turns off email for PR builds, notifies only on failure or change in status
     # http://docs.shippable.com/integrations/notifications/email/
