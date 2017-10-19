@@ -32,7 +32,7 @@ build:
     # the values of Shippable-generated environment variables, saving to central
     # state, etc. See the full list of commands here:
     # http://docs.shippable.com/platform/tutorial/workflow/howto-use-shipctl
-    - aws ec2 describe-instances
+    - aws ec2 describe-instances --region us-east-1
     # - pushd infra/awsBuildAMI
     # - python --version
     # - echo 'This is the AWS access key - '$AWS_ACCESS_KEY
