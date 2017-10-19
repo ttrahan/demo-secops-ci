@@ -14,6 +14,15 @@ resources:
     flags:
       - amiBuildCI
 
+# AWS cli
+  - name: aws_cliconfig
+    type: cliConfig
+    integration: "ttrahan-aws-keys"
+    pointer:
+      region: us-east-1
+    flags:
+      - amiBuildCI
+
 # AWS credentials
   - name: aws_creds_tt
     type: integration
