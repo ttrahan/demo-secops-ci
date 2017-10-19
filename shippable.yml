@@ -21,11 +21,11 @@ env:
     - AWS_SECRET_KEY=$(shipctl get_integration_resource_field aws_creds_tt aws_secret_access_key)
 
 build:
-  pre_ci_boot:
-    image_name: drydock/u14pytall
-    image_tag: v5.8.1
-    pull: true
-    options: "-e HOME=/root"
+  # pre_ci_boot:
+  #   image_name: drydock/u14pytall
+  #   image_tag: v5.8.1
+  #   pull: true
+  #   options: "-e HOME=/root"
 
   ci:
     # Shippable provides a command utility for common operations like getting 
