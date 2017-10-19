@@ -48,7 +48,7 @@ build:
 integrations:
   generic:
     - integrationName: ttrahan-aws-keys
-      type: awsKeys
+      type: aws
       region: us-east-1
 
   notifications:
