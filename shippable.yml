@@ -46,7 +46,7 @@ build:
 # Integrations are used to connect external resources to CI
 # http://docs.shippable.com/integrations/overview/
 integrations:
-  hub:
+  generic:
     - integrationName: ttrahan-aws-keys
       type: ecr
       region: us-east-1
